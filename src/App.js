@@ -1,5 +1,14 @@
 import { useState } from 'react'
 
+const Anecdote = ({ anecdotes, selectedAnecdote, votes }) => {
+  return (
+    <div>
+      <p>{anecdotes[selectedAnecdote]}</p>
+      <p>Vote count: {votes[selectedAnecdote]}</p>
+    </div>
+  )
+}
+
 const App = () => {
   const anecdotes = [
     'If it hurts, do it more often',
@@ -18,21 +27,30 @@ const App = () => {
 
   const updateVoteCount = () => {
     const copy = [...votes]
-    const voteCount = copy[selected] == undefined ? 1 : (copy[selected] += 1)
-    copy[selected] = voteCount
+    copy[selected] += 1
     setVotes(copy)
     console.log('copy: ', copy)
   }
 
   const [selected, setSelected] = useState(0)
-  const [votes, setVotes] = useState([])
+  const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
 
   return (
     <div>
-      <p>{anecdotes[selected]}</p>
-      <p>Vote count: {votes[selected] == undefined ? 0 : votes[selected]}</p>
+      <h1>Vote For an Anecdote</h1>
+      <Anecdote
+        anecdotes={anecdotes}
+        selectedAnecdote={selected}
+        votes={votes}
+      />
       <button onClick={updateVoteCount}>Vote</button>
       <button onClick={getRandomAnecdote}>Generate Anecdote</button>
+      <h1>Anecdote with Most Votes</h1>
+      <Anecdote
+        anecdotes={anecdotes}
+        selectedAnecdote={votes.indexOf(Math.max(...votes))}
+        votes={votes}
+      />
     </div>
   )
 }
