@@ -1,10 +1,11 @@
 import { useState } from 'react'
+import './App.css'
 
 const Anecdote = ({ anecdotes, selectedAnecdote, votes }) => {
   return (
     <div>
       <p>{anecdotes[selectedAnecdote]}</p>
-      <p>Vote count: {votes[selectedAnecdote]}</p>
+      <p id='vote-count'>Received {votes[selectedAnecdote]} votes</p>
     </div>
   )
 }
@@ -36,22 +37,30 @@ const App = () => {
   const [votes, setVotes] = useState(new Array(anecdotes.length).fill(0))
 
   return (
-    <div>
+    <div className='outerContainer'>
+    <div className='innerContainer'>
       <h1>Vote For an Anecdote</h1>
       <Anecdote
         anecdotes={anecdotes}
         selectedAnecdote={selected}
         votes={votes}
       />
+      <div className='buttonsContainer'>
+
       <button onClick={updateVoteCount}>Vote</button>
       <button onClick={getRandomAnecdote}>Generate Anecdote</button>
-      <h1>Anecdote with Most Votes</h1>
+      </div>
+      <div className='mostVotesContainer'>
+      <h3>Anecdote Hall of Fame</h3>
+
       <Anecdote
         anecdotes={anecdotes}
         selectedAnecdote={votes.indexOf(Math.max(...votes))}
         votes={votes}
       />
+      </div>
     </div>
+          </div>
   )
 }
 
