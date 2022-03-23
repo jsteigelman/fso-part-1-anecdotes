@@ -48,6 +48,10 @@
   padding: 0;
 }
 
+button:active {
+  background-color: #DA74FF;
+}
+
 @media only screen and (min-width: 600px) {
   .innerContainer {
     width: 400px;
