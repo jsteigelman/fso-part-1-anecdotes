@@ -8,24 +8,31 @@ const App = () => {
     'Any fool can write code that a computer can understand. Good programmers write code that humans can understand.',
     'Premature optimization is the root of all evil.',
     'Debugging is twice as hard as writing the code in the first place. Therefore, if you write the code as cleverly as possible, you are, by definition, not smart enough to debug it.',
-    'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients'
+    'Programming without an extremely heavy use of console.log is same as if a doctor would refuse to use x-rays or blood tests when diagnosing patients',
   ]
 
   const getRandomAnecdote = () => {
-    const randomNum = Math.floor(Math.random()*anecdotes.length)
+    const randomNum = Math.floor(Math.random() * anecdotes.length)
     setSelected(randomNum)
   }
 
-   
+  const updateVoteCount = () => {
+    const copy = [...votes]
+    const voteCount = copy[selected] == undefined ? 1 : (copy[selected] += 1)
+    copy[selected] = voteCount
+    setVotes(copy)
+    console.log('copy: ', copy)
+  }
+
   const [selected, setSelected] = useState(0)
+  const [votes, setVotes] = useState([])
 
   return (
     <div>
       <p>{anecdotes[selected]}</p>
-      <button onClick={getRandomAnecdote}>
-      Generate Anecdote
-      </button>
-
+      <p>Vote count: {votes[selected] == undefined ? 0 : votes[selected]}</p>
+      <button onClick={updateVoteCount}>Vote</button>
+      <button onClick={getRandomAnecdote}>Generate Anecdote</button>
     </div>
   )
 }
