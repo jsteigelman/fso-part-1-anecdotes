@@ -8,8 +8,8 @@ The course covers testing, configuration and environment management, and the use
 
 The course is worth 5-13 credits, and the content is the same as in the Full stack course held at the Department of Computer Science at the University of Helsinki in Spring 2020. There is also an associated project that is worth 1-10 credits.
 
-<!-- ## Live Site URL
-
+## Live Site URL
+https://steigelman-fso-part-1-anecdotes.netlify.app/
 
 ## Website Preview
- -->
+<img width="800" alt="Preview" src="https://user-images.githubusercontent.com/65603938/159798170-c872eea1-3a4c-4448-9f0a-0d523b701c63.png">
