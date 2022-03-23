@@ -12,4 +12,4 @@ The course is worth 5-13 credits, and the content is the same as in the Full sta
 https://steigelman-fso-part-1-anecdotes.netlify.app/
 
 ## Website Preview
-<img width="800" alt="Preview" src="https://user-images.githubusercontent.com/65603938/159798170-c872eea1-3a4c-4448-9f0a-0d523b701c63.png">
+<img width="800" alt="Preview-Anecdotes" src="https://user-images.githubusercontent.com/65603938/159798369-8e12c84d-cb5f-4821-beae-d7c338951859.png">
